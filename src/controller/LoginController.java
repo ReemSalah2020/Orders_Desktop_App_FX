@@ -4,20 +4,33 @@
  */
 package controller;
 
+import Database.DBConnection;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
  *
- * @author HP
+ * @author 1M.T
  */
 public class LoginController implements Initializable {
 
@@ -33,33 +46,63 @@ public class LoginController implements Initializable {
     private Button Reset;
     @FXML
     private Button signUpBtn;
+    @FXML
+    private Label errorLogIn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-
-    @FXML
-    private void txtUserNameHandle(ActionEvent event) {
+        try {
+            // TODO
+            DBConnection.get_connection();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
-    private void txtPasswordHandle(ActionEvent event) {
+    private void loginHandle(MouseEvent event) throws IOException, ClassNotFoundException {
+        String userName_si = txtUserName.getText();
+        String pass_si = txtPassword.getText();
+//        int status = (doctor.isSelected()) ? 1 : 0;
+        boolean check = DBConnection.singInCheck(userName_si, pass_si);
+        if (check) {
+            //---
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("client dashboard.fxml"));
+            Parent root = (Parent) loader.load();
+            ClientDashboardController con = loader.getController();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.getIcons().add(new Image("invoice.png"));
+            stage.setTitle("Client Dashboard");
+
+        } else {
+            errorLogIn.setVisible(true);
+        }
     }
 
     @FXML
-    private void loginHandle(ActionEvent event) {
+    private void ResetHandle(ActionEvent event
+    ) {
+        txtUserName.setText("");
+        txtPassword.setText("");
     }
 
     @FXML
-    private void ResetHandle(ActionEvent event) {
+    private void signUpBtnHandle(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("registration.fxml"));
+        Parent root = (Parent) loader.load();
+        SignupController con = loader.getController();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Registration");
+
     }
 
-    @FXML
-    private void signUpBtnHandle(ActionEvent event) {
-    }
-    
 }

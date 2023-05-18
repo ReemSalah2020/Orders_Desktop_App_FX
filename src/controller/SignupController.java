@@ -4,17 +4,27 @@
  */
 package controller;
 
+import Database.DBConnection;
+import Database.User;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -24,108 +34,81 @@ import javafx.scene.input.MouseEvent;
 public class SignupController implements Initializable {
 
     @FXML
-    private MenuItem Exit;
+    private Button goToLoginBtn;
     @FXML
-    private MenuItem size1;
+    private TextField txtFirstName;
     @FXML
-    private MenuItem size2;
+    private TextField txtLastName;
     @FXML
-    private MenuItem size3;
+    private TextField txtUserName;
     @FXML
-    private MenuItem Arial;
+    private PasswordField txtPassword;
     @FXML
-    private MenuItem Times;
+    private Button signUpBtn;
     @FXML
-    private MenuItem Calibri;
+    private Button Reset;
     @FXML
-    private MenuItem red;
+    private Button Upload;
     @FXML
-    private MenuItem Blue;
-    @FXML
-    private MenuItem Green;
-    @FXML
-    private MenuItem about;
-    @FXML
-    private ImageView profile;
-    @FXML
-    private ImageView Manage_Orders;
-    @FXML
-    private ImageView Invoices;
-    @FXML
-    private ImageView Password;
-    @FXML
-    private ImageView Logout;
+    private Label errorSingUp;
 
     /**
      * Initializes the controller class.
      */
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
-    @FXML
-    private void ExitHandle(ActionEvent event) {
+        try {
+            // TODO
+            DBConnection.get_connection();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
-    private void size1Handle(ActionEvent event) {
+    private void goToLoginHandle(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = (Parent) loader.load();
+        LoginController con = loader.getController();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Login");
     }
 
     @FXML
-    private void size2Handle(ActionEvent event) {
+    private void signUp(ActionEvent event) throws ClassNotFoundException {
+        if (!txtFirstName.getText().isEmpty()
+                && !txtLastName.getText().isEmpty()
+                && !txtUserName.getText().isEmpty()
+                && !txtPassword.getText().isEmpty()) {
+
+            String fName_su = txtFirstName.getText();
+            String lName_su = txtLastName.getText();
+            String userNmae_su = txtUserName.getText();
+            String pass_su = txtPassword.getText();
+
+            User user = new User(fName_su, lName_su, userNmae_su, pass_su);
+            DBConnection.singUp(user);
+        } else {
+            errorSingUp.setVisible(true);
+
+        }
+    }//END;
+
+    @FXML
+    private void ResetHandle(ActionEvent event) {
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtUserName.setText("");
+        txtPassword.setText("");
     }
 
     @FXML
-    private void size3Handle(ActionEvent event) {
+    private void UploadHan(ActionEvent event) {
     }
 
-    @FXML
-    private void ArialHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void TimesHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void CalibriHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void redHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void BlueHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void GreenHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void aboutHandle(ActionEvent event) {
-    }
-
-    @FXML
-    private void profileHandle(MouseEvent event) {
-    }
-
-    @FXML
-    private void Manage_OrdersHandle(MouseEvent event) {
-    }
-
-    @FXML
-    private void InvoicesHandle(MouseEvent event) {
-    }
-
-    @FXML
-    private void PasswordHandle(MouseEvent event) {
-    }
-
-    @FXML
-    private void LogoutHandle(MouseEvent event) {
-    }
-    
 }

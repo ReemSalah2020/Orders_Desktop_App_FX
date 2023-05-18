@@ -75,20 +75,16 @@
             </Menu>
          </menus>
       </MenuBar>
-      <VBox alignment="CENTER" layoutY="130.0" prefHeight="298.0" prefWidth="359.0">
+      <VBox alignment="CENTER" layoutY="130.0" prefHeight="298.0" prefWidth="605.0">
          <children>
             <HBox prefHeight="32.0" prefWidth="301.0">
                <children>
-                  <Label text="Name">
+                  <Label prefHeight="17.0" prefWidth="60.0" text="Name">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="nameTF" promptText="name">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </TextField>
+                  <TextField fx:id="nameTF" promptText="name" />
                </children>
                <VBox.margin>
                   <Insets left="80.0" top="20.0" />
@@ -96,7 +92,7 @@
             </HBox>
             <HBox layoutX="90.0" layoutY="20.0" prefHeight="32.0" prefWidth="364.0">
                <children>
-                  <Label text="Email">
+                  <Label prefHeight="17.0" prefWidth="50.0" text="Email">
                      <HBox.margin>
                         <Insets left="90.0" />
                      </HBox.margin>
@@ -113,7 +109,7 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="52.0" prefHeight="32.0" prefWidth="301.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="38.0" text="Mobile">
+                  <Label prefHeight="17.0" prefWidth="49.0" text="Mobile">
                      <HBox.margin>
                         <Insets left="90.0" />
                      </HBox.margin>
@@ -130,7 +126,7 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="134.0" prefHeight="32.0" prefWidth="301.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="38.0" text="image">
+                  <Label prefHeight="17.0" prefWidth="49.0" text="image">
                      <HBox.margin>
                         <Insets left="90.0" />
                      </HBox.margin>
@@ -145,7 +141,7 @@
                   <Insets top="11.0" />
                </VBox.margin>
             </HBox>
-            <HBox layoutX="10.0" layoutY="134.0" prefHeight="32.0" prefWidth="301.0" spacing="15.0">
+            <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="134.0" spacing="15.0">
                <children>
                   <Button fx:id="Edit_Profile" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#Edit_Profilehandle" style="-fx-background-color: #37474f;" text="Update Profile" textFill="WHITE" />
                   <Button fx:id="Back" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#Backhandle" style="-fx-background-color: #37474f;" text="Back" textFill="WHITE" />

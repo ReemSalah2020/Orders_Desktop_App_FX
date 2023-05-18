@@ -44,5 +44,10 @@
       </ImageView>
       <Button fx:id="Reset" layoutX="222.0" layoutY="373.0" mnemonicParsing="false" onAction="#ResetHandle" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #37474f;" text="Reset" textFill="WHITE" />
       <Button fx:id="Upload" layoutX="230.0" layoutY="319.0" mnemonicParsing="false" onAction="#UploadHan" text="Upload Your Image" />
+      <Label fx:id="errorSingUp" layoutX="38.0" layoutY="173.0" text="Fix your information" textFill="RED" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

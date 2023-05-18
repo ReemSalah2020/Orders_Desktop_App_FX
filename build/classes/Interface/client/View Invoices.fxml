@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientDashboardController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="25.0" prefHeight="106.0" prefWidth="616.0" style="-fx-background-color: Blue;">
+         <children>
+            <Label layoutX="175.0" layoutY="27.0" prefHeight="53.0" prefWidth="301.0" text="View Invoices" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <MenuBar prefHeight="25.0" prefWidth="616.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="Exit" mnemonicParsing="false" onAction="#ExitHandle" text="Exit">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/button.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Format">
+               <items>
+                  <Menu mnemonicParsing="false" text=" font size">
+                     <items>
+                        <MenuItem fx:id="size1" mnemonicParsing="false" onAction="#size1Handle" text="10" />
+                        <MenuItem fx:id="size2" mnemonicParsing="false" onAction="#size2Handle" text="15" />
+                        <MenuItem fx:id="size3" mnemonicParsing="false" onAction="#size3Handle" text="20" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="font family">
+                     <items>
+                        <MenuItem fx:id="Arial" mnemonicParsing="false" onAction="#ArialHandle" text="Arial" />
+                        <MenuItem fx:id="Times" mnemonicParsing="false" onAction="#TimesHandle" text="Times New Roman" />
+                        <MenuItem fx:id="Calibri" mnemonicParsing="false" onAction="#CalibriHandle" text="Calibri" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="background color">
+                     <items>
+                        <MenuItem fx:id="red" mnemonicParsing="false" onAction="#redHandle" text="Red" />
+                        <MenuItem fx:id="Blue" mnemonicParsing="false" onAction="#BlueHandle" text="Blue" />
+                        <MenuItem fx:id="Green" mnemonicParsing="false" onAction="#GreenHandle" text="Green" />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutHandle" text=" about app">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/information.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <VBox layoutX="1.0" layoutY="128.0" prefHeight="310.0" prefWidth="616.0">
+         <children>
+            <HBox layoutX="10.0" layoutY="134.0" prefHeight="32.0" prefWidth="149.0" spacing="80.0">
+               <children>
+                  <Button fx:id="Back" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" onAction="#Backhandle" style="-fx-background-color: #37474f;" text="Back" textFill="WHITE" />
+                  <Button fx:id="Reset" layoutX="223.0" layoutY="10.0" mnemonicParsing="false" onAction="#Resethandle" style="-fx-background-color: #37474f;" text="Reset" textFill="WHITE" />
+               </children>
+               <VBox.margin>
+                  <Insets left="215.0" top="200.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <TableView fx:id="tableView" layoutY="131.0" prefHeight="183.0" prefWidth="616.0">
+         <columns>
+            <TableColumn fx:id="idCol" prefWidth="151.0" text="id" />
+            <TableColumn fx:id="order_idCol" prefWidth="153.0" text="order id" />
+            <TableColumn fx:id="total_priceCol" prefWidth="152.0" text="total price" />
+            <TableColumn fx:id="Col" prefWidth="159.0" text="date" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

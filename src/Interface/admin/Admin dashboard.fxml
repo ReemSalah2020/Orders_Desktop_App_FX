@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientDashboardController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="25.0" prefHeight="106.0" prefWidth="605.0" style="-fx-background-color: Blue;">
+         <children>
+            <Label layoutX="152.0" layoutY="27.0" prefHeight="53.0" prefWidth="301.0" text="Admin dashboard" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <MenuBar prefHeight="25.0" prefWidth="605.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="Exit" mnemonicParsing="false" onAction="#ExitHandle" text="Exit">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/button.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Format">
+               <items>
+                  <Menu mnemonicParsing="false" text=" font size">
+                     <items>
+                        <MenuItem fx:id="size1" mnemonicParsing="false" onAction="#size1Handle" text="10" />
+                        <MenuItem fx:id="size2" mnemonicParsing="false" onAction="#size2Handle" text="15" />
+                        <MenuItem fx:id="size3" mnemonicParsing="false" onAction="#size3Handle" text="20" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="font family">
+                     <items>
+                        <MenuItem fx:id="Arial" mnemonicParsing="false" onAction="#ArialHandle" text="Arial" />
+                        <MenuItem fx:id="Times" mnemonicParsing="false" onAction="#TimesHandle" text="Times New Roman" />
+                        <MenuItem fx:id="Calibri" mnemonicParsing="false" onAction="#CalibriHandle" text="Calibri" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="background color">
+                     <items>
+                        <MenuItem fx:id="red" mnemonicParsing="false" onAction="#redHandle" text="Red" />
+                        <MenuItem fx:id="Blue" mnemonicParsing="false" onAction="#BlueHandle" text="Blue" />
+                        <MenuItem fx:id="Green" mnemonicParsing="false" onAction="#GreenHandle" text="Green" />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutHandle" text=" about app">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/information.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <VBox layoutY="131.0" prefHeight="296.0" prefWidth="605.0">
+         <children>
+            <HBox prefHeight="147.5" prefWidth="605.0" spacing="80.0">
+               <children>
+                  <ImageView fx:id="Manage_Products" fitHeight="120.0" fitWidth="142.0" onMouseClicked="#Manage_ProductsHandle" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/inventory-management.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Manage_Orders" fitHeight="120.0" fitWidth="138.0" onMouseClicked="#Manage_OrdersHandle" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/ecommerce.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Manage_Clients" fitHeight="120.0" fitWidth="171.0" onMouseClicked="#Manage_ClientsHandle" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/customer-care.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="147.5" prefWidth="605.0" spacing="50.0">
+               <children>
+                  <ImageView fx:id="Manage_Invoices" fitHeight="120.0" fitWidth="200.0" onMouseClicked="#Manage_InvoicesHandle" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/accounting.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="Password" fitHeight="120.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#PasswordHandle" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/password.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="9.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="Logout" fitHeight="120.0" fitWidth="200.0" layoutX="200.0" layoutY="10.0" onMouseClicked="#LogoutHandle" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/switch.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="37.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
